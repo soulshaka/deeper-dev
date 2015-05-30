@@ -1,0 +1,106 @@
+#N canvas 22 62 1125 799 10;
+#X obj 347 116 notein;
+#X obj 330 428 mtof;
+#X obj 416 472 adsr;
+#X obj 468 298 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1200 0;
+#X obj 494 298 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X obj 521 297 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 8627 1;
+#X obj 545 296 vsl 15 128 10 1000 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5238 1;
+#X obj 332 671 output~;
+#X text 466 274 Amplitude - ADSR;
+#X obj 578 295 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X text 577 275 env-gain;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array scope~ 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 685 551 graph;
+#X obj 564 637 tabwrite~ scope~;
+#X obj 565 559 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 564 593 metro 10;
+#X obj 331 611 lop~;
+#X floatatom 206 567 5 0 0 0 - - -;
+#X obj 206 416 vsl 15 128 20 2000 1 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 9300 1;
+#X text 626 304 1 = Trigger 2 = PeakLevel 3 = atack 4 = decay 5 = sustain
+6 = release;
+#X obj 329 473 phasor~;
+#N canvas 640 125 450 300 random 1;
+#X msg 68 226 1;
+#X msg 103 226 0;
+#X obj 104 51 metro 1000;
+#X obj 104 92 random 70;
+#X obj 105 18 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 161 21 5 0 0 0 - - -;
+#X obj 166 143 +;
+#X floatatom 233 65 5 0 0 0 - - -;
+#X obj 103 145 t 0 b;
+#X floatatom 184 65 5 0 0 0 - - -;
+#X obj 103 190 pipe 50;
+#X msg 61 20 stop;
+#X obj 68 270 outlet;
+#X obj 167 269 outlet;
+#X text 216 270 MIDI Note;
+#X text 31 271 BANG;
+#X connect 0 0 12 0;
+#X connect 1 0 12 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 3 0 8 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 13 0;
+#X connect 7 0 6 1;
+#X connect 8 0 10 0;
+#X connect 8 1 0 0;
+#X connect 9 0 3 1;
+#X connect 10 0 1 0;
+#X connect 11 0 2 0;
+#X restore 432 117 pd random;
+#X msg 468 233 10;
+#X msg 501 233 500;
+#X msg 538 233 1;
+#X msg 571 233 50;
+#X obj 467 187 loadbang;
+#X obj 330 530 *~;
+#X msg 608 235 1;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 1 0 19 0;
+#X connect 2 0 26 1;
+#X connect 3 0 2 2;
+#X connect 4 0 2 3;
+#X connect 5 0 2 4;
+#X connect 6 0 2 5;
+#X connect 9 0 2 1;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 15 0 7 0;
+#X connect 15 0 7 1;
+#X connect 16 0 15 1;
+#X connect 17 0 16 0;
+#X connect 19 0 26 0;
+#X connect 20 0 2 0;
+#X connect 20 1 1 0;
+#X connect 21 0 3 0;
+#X connect 22 0 4 0;
+#X connect 23 0 5 0;
+#X connect 24 0 6 0;
+#X connect 25 0 21 0;
+#X connect 25 0 22 0;
+#X connect 25 0 23 0;
+#X connect 25 0 24 0;
+#X connect 25 0 27 0;
+#X connect 26 0 15 0;
+#X connect 26 0 12 0;
+#X connect 27 0 9 0;

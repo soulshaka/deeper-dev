@@ -1,0 +1,75 @@
+#N canvas 54 50 1051 573 10;
+#X obj 106 149 float;
+#X floatatom 69 176 5 0 0 0 - - -;
+#X msg 70 67 1;
+#X obj 69 149 +;
+#X msg 106 119 0;
+#X msg 82 90 -1;
+#X text 116 68 increment;
+#X text 121 91 decrement;
+#X text 144 117 reset;
+#X floatatom 223 171 5 0 0 0 - - -;
+#X msg 255 107 0;
+#X text 272 64 increment;
+#X obj 223 143 float;
+#X obj 281 143 + 1;
+#X msg 224 65 bang;
+#X text 293 107 reset;
+#X obj 78 251 metro 300;
+#X obj 78 228 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X text 120 273 change direction;
+#X obj 95 273 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 112 304 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 131 301 reset to minimum \, wait for next bang before output
+;
+#X obj 128 324 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 152 323 reset and output imediately;
+#X floatatom 136 230 5 0 0 0 - - -;
+#X obj 145 346 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 164 347 reset to max \, wait for next bang before output *
+;
+#X floatatom 76 400 5 0 0 0 - - -;
+#X obj 77 368 counter 0 16;
+#X floatatom 415 64 5 0 0 0 - - -;
+#X obj 415 116 expr 60 / $f1 * 1000;
+#X obj 415 137 i;
+#X floatatom 415 172 5 0 0 0 - - -;
+#X text 452 63 BPM (Beats per Minutes);
+#X text 456 173 MS (Millisecond);
+#X text 414 36 BPM to MS;
+#X obj 548 233 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X floatatom 605 232 5 0 0 0 - - -;
+#X obj 548 292 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 548 256 metro 1000;
+#X connect 0 0 3 1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 3 0;
+#X connect 10 0 12 1;
+#X connect 12 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 12 1;
+#X connect 14 0 12 0;
+#X connect 16 0 28 0;
+#X connect 17 0 16 0;
+#X connect 19 0 28 1;
+#X connect 20 0 28 2;
+#X connect 22 0 28 3;
+#X connect 24 0 16 1;
+#X connect 25 0 28 4;
+#X connect 28 0 27 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X connect 36 0 39 0;
+#X connect 37 0 39 1;
+#X connect 39 0 38 0;

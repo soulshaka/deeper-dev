@@ -1,0 +1,22 @@
+#N canvas 162 188 518 376 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array seq_pitches 16 float 3;
+#A 0 79.8216 79.8216 78.9145 76.1931 63.4932 48.9791 45.3505 48.9791
+57.1433 63.4932 67.1218 70.7503 48.0719 50.7933 88.893 71.6574;
+#X coords 0 127 16 0 200 140 1 0 0;
+#X restore 212 42 graph;
+#X obj 42 141 tabread seq_pitches;
+#X obj 42 184 mtof;
+#X obj 42 219 osc~ 440;
+#X obj 42 65 metro 300;
+#X obj 42 30 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 42 99 counter 0 15;
+#X obj 43 274 output~;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 3 0 7 1;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
